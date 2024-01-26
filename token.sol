@@ -11,7 +11,7 @@ contract MyToken is ERC20, ERC20Burnable, Ownable {
         ERC20("MyToken", "MYT")
         Ownable(initialOwner)
     {
-        _mint(msg.sender, 1000000 * 10 ** decimals());
+        _mint(msg.sender, 100 * 10 ** decimals());
     }
 
     function mint(address to, uint256 amount) public onlyOwner {
@@ -24,8 +24,8 @@ contract MyToken is ERC20, ERC20Burnable, Ownable {
         return true;
     }
 
-    //  burn function
-    function burn(uint256 amount) public {
+    
+    function burn(uint256 amount) public override {
         _burn(msg.sender, amount);
     }
 }
